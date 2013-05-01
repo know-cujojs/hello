@@ -1,23 +1,26 @@
-define({
+define({ // Wire spec
 
-	// Load a basic theme. This is just a CSS file, and since a moduleLoader is
-	// configured in run.js, curl knows to load this as CSS.
-	theme: { module: 'theme/basic.css' },
+	root: { $ref: 'dom.first!body' },
 
-	// Create a simple view by rendering html, replacing some i18n strings
-	// and loading CSS.  Then, insert into the DOM
-	message: {
-		render: {
-			template: { module: 'text!welcome/template.html' },
-			replace: { module: 'i18n!welcome/strings' },
-			css: { module: 'css!welcome/structure.css' }
+	controller: {
+		create: 'hello/app/controller',
+		properties: {
+			node: { $ref: 'dom.first!span', at: 'view' }
 		},
-		insert: { at: 'dom.first!body' }
+		on: { view: { 'input': 'update' } }
 	},
 
-	// Wire.js plugins
+	view: {
+		render: {
+			template: { module: 'text!hello/app/template.html' },
+			replace: { module: 'i18n!hello/app/strings.js' }
+		},
+		insert: { last: 'root' }
+	},
+
 	plugins: [
-		{ module: 'wire/dom', classes: { init: 'loading' } },
-		{ module: 'wire/dom/render' }
+		{ module: 'wire/dom' },
+		{ module: 'wire/dom/render' },
+		{ module: 'wire/on' }
 	]
 });
