@@ -1,0 +1,11 @@
+{
+	"dependencies": {
+		"curl": "latest",
+		"wire": "latest",
+		"cola": "latest",
+		"when": "latest",
+		"meld": "latest",
+		"poly": "latest",
+		"rest": "latest"
+	}
+}
