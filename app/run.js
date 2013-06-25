@@ -11,8 +11,10 @@
 			{ name: 'meld', location: 'lib/meld', main: 'meld' },
 			{ name: 'poly', location: 'lib/poly' }
 		],
+		// Turn off automatic locale scanning
+		locale: false,
 		// Polyfill everything ES5-ish
-		preloads: ['poly/all']
+		preloads: ['poly/es5']
 	};
 
 	curl(config, ['wire!app/main']);

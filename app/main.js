@@ -1,11 +1,11 @@
 define({ // Wire spec
 
-	root: { $ref: 'dom.first!body' },
+	root: { $ref: 'first!body' },
 
 	controller: {
 		create: 'hello/app/controller',
 		properties: {
-			node: { $ref: 'dom.first!span', at: 'view' }
+			node: { $ref: 'first!span', at: 'view' }
 		},
 		on: { view: { 'input': 'update' } }
 	},
@@ -18,9 +18,5 @@ define({ // Wire spec
 		insert: { last: 'root' }
 	},
 
-	plugins: [
-		{ module: 'wire/dom' },
-		{ module: 'wire/dom/render' },
-		{ module: 'wire/on' }
-	]
+	plugins: ['wire/dom', 'wire/dom/render', 'wire/on']
 });
