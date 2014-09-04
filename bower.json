@@ -1,11 +1,13 @@
 {
+	"name": "hello",
+	"private": true,
 	"dependencies": {
 		"curl": "~0.7.4",
-		"wire": "~0.10",
+		"wire": "~0.10.9",
 		"cola": "~0.1",
-		"when": "~2",
+		"when": "~3",
 		"meld": "~1",
 		"poly": "~0.5",
-		"rest": "~0.9"
+		"rest": "~1.1"
 	}
 }
